@@ -31,7 +31,7 @@
     </div>
     <div style="border: solid;" class="col">
       <div *ngIf="!wateringNow[i]"> 
-        <button id="bt-{{i}}" class="btn btn-secondary mt-3" (click)="onWateringStatusChanged(i)">start watering</button>
+        <button id="bt-{{i}}" class="btn btn-secondary mt-3" (click)="onWateringStatusChanged(i)" [disabled]="buttonDisableTimer[i] == true" >start watering</button>
       </div>
 
       <div *ngIf="wateringNow[i]" class="row mt-3">

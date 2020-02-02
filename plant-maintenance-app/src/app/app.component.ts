@@ -18,6 +18,7 @@ export class AppComponent {
   timer = [];
   data: any;// = new Array<PlantInfoModel>();
   timeInterval = new Array();
+  buttonDisableTimer = new Array();
   startWatering = "Start watering";
   stopWatering = "Stop watering";
   @ViewChild('wateringButton') wateringButton: ElementRef;
@@ -33,6 +34,7 @@ export class AppComponent {
     this.plantInfoServices.getPlantInfo<PlantInfoModelList>().subscribe(d => {
       this.data = d;
       this.wateringNow = new Array<boolean>(this.data.length).fill(false);
+      this.buttonDisableTimer = new Array<boolean>(this.data.length).fill(false);
       this.timer = new Array(this.data.length).fill(10);
       this.timeInterval = new Array(this.data.length);
       console.log(this.wateringNow);
@@ -75,6 +77,11 @@ export class AppComponent {
     }
     this.timer[plantId] = 10
     this.wateringNow[plantId] = false;
+    this.buttonDisableTimer[plantId] = true;
+    setTimeout (() => {
+      this.buttonDisableTimer[plantId] = false;
+      console.log("Hello from setTimeout");
+    }, 30000);
     console.log(this.timer);
   }
 
