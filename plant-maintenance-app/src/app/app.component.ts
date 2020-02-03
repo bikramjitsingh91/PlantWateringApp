@@ -27,7 +27,7 @@ export class AppComponent {
   plantWateringStatusTracker: any;
   remindToWater: number = 21600000 //6 hrs
   timeTodisableWateringAfterWatering = 30000 //30 sec
-  timeToWater = 10000 //10 sec
+  timeToWater = 1000 //10 sec
   @ViewChild('wateringButton') wateringButton: ElementRef;
 
  
