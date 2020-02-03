@@ -23,7 +23,7 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<div #wateringButton class="ml-5 mr-5 " *ngFor="let plant of plants; let i = index;">
+<div #wateringButton class="ml-5 mr-5 " *ngFor="let plant of data; let i = index;">
   <div class="row mt-5">
     <div style="border: solid;" class="col">
       <img *ngIf="wateringNow[i]" src="../assets/images/plantwatering.PNG" height="120" width="100" alt="">
@@ -45,7 +45,13 @@
       
     </div>
     <div style="border: solid;" class="col">
-      Test
+      {{plant.plantName}}: 
+      <div *ngIf="plantWateringStatusTracker[i]">
+        Need Watering
+      </div> 
+      <div *ngIf="!plantWateringStatusTracker[i]">
+        Already Watered
+      </div>  
     </div>
   </div>
 </div>
